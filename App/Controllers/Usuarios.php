@@ -9,6 +9,10 @@ class Usuarios extends Controller {
     public function cadastro() {
         $this->view('cadastro');
     }
+
+    public function recuperar() {
+        $this->view('recuperar');
+    }
     
     // Header
     public function notificacoes() {

@@ -12,5 +12,8 @@
         <p>Oops! A página que você está procurando não foi encontrada.</p>
         <a href="<?= URL ?>/Usuarios/home"><button class="button">Voltar para a página inicial</button></a>
     </div>
+    
+<?php include 'includes/footer.php'; ?>
+
 </body>
 </html>

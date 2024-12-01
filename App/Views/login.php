@@ -11,6 +11,7 @@
                 <input type="email" name="email" placeholder="Email *" required>
                 <input type="password" name="senha" placeholder="Senha *" required>
                 <button type="submit" class="button">Entrar</button>
+                <p>Esqueceu a senha? <a href="<?= URL ?>/Usuarios/recuperar">Recuperar</a></p>
             </form>
 
         </div>

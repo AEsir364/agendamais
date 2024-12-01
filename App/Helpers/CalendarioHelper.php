@@ -5,8 +5,8 @@ class CalendarioHelper
 {
     public static function gerarCalendario($mes = null, $ano = null)
     {
-        $mes = $mes ?? date('n'); // Mês atual
-        $ano = $ano ?? date('Y'); // Ano atual
+        $mes = $mes ?? date('n');
+        $ano = $ano ?? date('Y');
 
         $diasDaSemana = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
         $totalDias = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
@@ -39,11 +39,10 @@ class CalendarioHelper
         echo "</tr></tbody></table>";
     }
 
-    public static function exibirAtividades($atividades){
-        // Define o local para português
+    public static function exibirAtividades($atividades)
+    {
         setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
 
-        // Datas importantes
         $hoje = date('Y-m-d');
         $amanha = date('Y-m-d', strtotime('+1 day'));
         $ontem = date('Y-m-d', strtotime('-1 day'));
@@ -55,23 +54,16 @@ class CalendarioHelper
             $formato = $mesmoAno ? '%d de %B' : '%d de %B de %Y';
             $dataFormatada = ucfirst(strftime($formato, $dataTimestamp));
 
-            // Divide a descrição em partes
             [$materia, $atividade, $hora] = explode(' - ', $descricao);
 
-            // Determina o rótulo
-            if ($data == $hoje) {
-                $rotulo = 'Hoje';
-            } elseif ($data == $amanha) {
-                $rotulo = 'Amanhã';
-            } elseif ($data == $ontem) {
-                $rotulo = 'Ontem';
-            } elseif ($data == $anteontem) {
-                $rotulo = 'Anteontem';
-            } else {
-                $rotulo = $dataFormatada;
-            }
+            $rotulo = match(true) {
+                $data == $hoje => 'Hoje',
+                $data == $amanha => 'Amanhã',
+                $data == $ontem => 'Ontem',
+                $data == $anteontem => 'Anteontem',
+                default => $dataFormatada,
+            };
 
-            // Gera o HTML
             echo "<div class='atividade'>
                 <div class='rotulo'>$rotulo</div>
                 <div class='detalhes'>
@@ -91,5 +83,52 @@ class CalendarioHelper
             </div>";
         }
     }
+
+    public static function exibirProximosDias($atividades)
+    {
+        $hoje = strtotime(date('Y-m-d'));
+        $limite = strtotime('+30 days', $hoje);
+
+        $html = '';
+        foreach ($atividades as $data => $descricao) {
+            $dataAtividade = strtotime($data);
+        
+            if ($dataAtividade > $hoje && $dataAtividade <= $limite) {
+                $diasRestantes = (int)(($dataAtividade - $hoje) / 86400);
+
+            $cor = match (true) {
+                    $diasRestantes <= 3 => 'vermelho',
+                    $diasRestantes <= 7 => 'laranja',
+                    $diasRestantes <= 15 => 'verde',
+                    $diasRestantes <= 30 => 'azul',
+                    default => 'cinza'
+                };
+
+                $dataFormatada = ucfirst(strftime('%d de %B', $dataAtividade));
+                [$materia, $atividade, $hora] = explode(' - ', $descricao);
+
+                // Adiciona o atributo data-cor para facilitar a estilização
+                $html .= "<li><span class='tag' data-cor='$cor'></span><strong>$materia</strong> - $atividade ($dataFormatada - $hora)</li>";
+            }
+        }
+        echo $html;
+    }
+    public static function adicionarAtividade(&$atividades, $dados)
+{
+    $data = $dados['data'];
+    $hora = $dados['hora'];
+    $materia = $dados['materia'];
+    $atividade = $dados['atividade'];
+
+    // Cria o formato da descrição da atividade
+    $descricao = "$materia - $atividade - $hora";
+
+    // Adiciona a atividade no array de atividades
+    $atividades[$data] = $descricao;
+
+    // Retorna sucesso para exibição (ou pode salvar em banco/arquivo)
+    return "Atividade adicionada com sucesso!";
+}
+
 
 }

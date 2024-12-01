@@ -8,6 +8,7 @@
 /* Ajustar para que o conteúdo principal não seja soterrado */
 .content {
   margin-top: 2rem;
+  margin-right: -22rem;
 }
 
 .dashboard {
@@ -47,7 +48,7 @@ h2 {
   font-size: 16px;
 }
 
-/* Próximos dias */
+/* Próximos Dias */
 .proximos-dias ul {
   list-style: none;
   padding: 0;
@@ -60,8 +61,15 @@ h2 {
   margin-bottom: 15px;
   font-size: 16px;
   color: #333333;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.proximos-dias li:hover {
+  background-color: #f8f5f5;
 }
 
+/* Tags dinâmicas */
 .tag {
   display: inline-block;
   width: 14px;
@@ -69,17 +77,32 @@ h2 {
   border-radius: 25px;
   margin-right: 10px;
 }
-.tag.rosa {
-  background-color: #ff69b4;
+
+/* Cores dinâmicas */
+.tag[data-cor="vermelho"] {
+  background-color: #ff4c4c; /* Cor vermelha */
+  border-color: #ff4c4c;
 }
-.tag.azul {
-  background-color: #87cefa;
+
+.tag[data-cor="laranja"] {
+  background-color: #ffa500; /* Cor laranja */
+  border-color: #ffa500;
 }
-.tag.laranja {
-  background-color: #ffa500;
+
+.tag[data-cor="verde"] {
+  background-color: #32cd32; /* Cor verde */
+  border-color: #32cd32;
 }
-.tag.amarelo {
-  background-color: #ffd700;
+
+.tag[data-cor="azul"] {
+  background-color: #4682b4; /* Cor azul */
+  border-color: #4682b4;
+}
+
+/* Cor padrão */
+.tag {
+  background-color: #ccc;
+  border-color: #ccc;
 }
 
 /* Responsividade */
