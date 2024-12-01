@@ -1,0 +1,41 @@
+AGENDA+
+|--> App
+|   |--> Controllers
+|   |   | Usuarios.php
+|   |--> Helpers
+|   |   | CalendarioHelper.php
+|   |--> Libraries
+|   |   | Controller.php
+|   |   | Rota.php
+|   |--> Models
+|   |--> Views
+|   |   |--> includes
+|   |   |   | auth.php
+|   |   |   | footer.php
+|   |   |   | main.php
+|   |   | 404.php
+|   |   | cadastro.php
+|   |   | calendario.php
+|   |   | home.php
+|   |   | login.php
+|   |   | recuperar.php
+|   | autoload.php
+|   | configuracao.php
+|--> Public
+|   |--> bootstrap
+|   |--> css
+|   |   | 404.css
+|   |   | auth.css
+|   |   | calendario4.css
+|   |   | main7.css
+|   |   | pagina3.css
+|   |--> images
+|   |   | --> barra-lateral
+|   |   | --> header
+|   |   | Agenda.png
+|   |   | Home.png
+|   |   | placeholder.png
+|   |--> js
+|   | .htaccess
+|   | index.php
+| .htaccess

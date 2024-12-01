@@ -16,6 +16,7 @@
 
         </div>
         <img src="<?= URL ?>/Public/images/Home.png" alt="Descrição da imagem">
+        
     </div>
 </div>
 
