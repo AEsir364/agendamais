@@ -22,13 +22,7 @@
               // Inicializa as atividades na sessão, se ainda não estiverem configuradas
               if (!isset($_SESSION['atividades'])) {
                 $_SESSION['atividades'] = [
-                  '2024-12-01' => 'Programação Web - Envio do Projeto e Apresentação - 23:59',
-                  '2024-12-04' => 'Física III - Atividade Exemplo Vermelho - 15:30',
-                  '2024-12-07' => 'Projetos e Desenvolvimento de Sistemas - Atividade Exemplo Laranja - 18:20',
-                  '2024-12-14' => 'Redes de Computadores II - Atividade Exemplo Verde - 22:30',
-                  '2024-12-20' => 'Banco de Dados II - Atividade Exemplo Azul - 14:40',
-                  '2025-11-02' => 'Enem - Ciências Humanas, Linguagens e Redação. - 13:30',
-                  '2025-11-09' => 'Enem - Matemática e Ciências da Natureza. - 13:30'
+                  '2024-12-01' => 'Programação Web - Envio do Projeto e Apresentação - 23:59'
                 ];
               }
 
