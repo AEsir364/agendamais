@@ -1,0 +1,97 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 13vh;
+  z-index: 100;
+}
+
+.headerImage {
+  max-width: 75px;
+  height: auto;
+  position: fixed;
+  top: 50px;
+  left: 5%;
+  z-index: 10;
+}
+
+.headerText {
+  position: fixed;
+  top: 70px;
+  left: 5%;
+  font-size: 1.150rem;
+  font-weight: 600;
+  color: #000000;
+  z-index: 10;
+}
+
+.pesquisaHeader {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-left: 100px;
+}
+
+.barraPesquisa {
+  width: 75%;
+  max-width: 550px;
+  padding: 15px 25px 15px 50px;
+  border: 1px solid #c3d4e966;
+  border-radius: 1000px;
+  font-size: 0.9rem;
+  color: #060e1d;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.iconeLupa {
+  position: relative;
+  left: 35px;
+  top: 24.5px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+.barraPesquisa::placeholder {
+  color: #2a3953;
+}
+
+.botoesHeader {
+  display: flex;
+  gap: 15px;
+  padding-right: 30px;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: none;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.25);
+}
+
+.iconeBtn {
+  object-fit: cover;
+  width: 80%;
+  height: 80%;
+  display: block;
+  z-index: 1;
+}
